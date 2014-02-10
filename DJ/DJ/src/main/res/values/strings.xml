@@ -4,5 +4,7 @@
     <string name="app_name">DJ</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="username">admin</string>
+    <string name="password">password</string>
 
 </resources>

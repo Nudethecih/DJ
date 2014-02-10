@@ -1,5 +1,6 @@
 package com.DJ.app;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -22,15 +24,30 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    //.add(R.id.btnLogin, new PlaceholderFragment())
                     .commit();
         }
-        Button b = (Button) findViewById(R.id.button1);
-
+        Button b = (Button) findViewById(R.id.btnLogin);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, second.class));
+                EditText UsernameEditText = (EditText) findViewById(R.id.txtUsername);
+                String Username = UsernameEditText.getText().toString();
+                EditText PasswordEditText = (EditText) findViewById(R.id.txtPassword);
+                String Password = PasswordEditText.getText().toString();
+
+                if(Username.equals(getString(R.string.username))&& Password.equals(getString(R.string.password))){
+                    startActivity(new Intent(MainActivity.this, second.class));
+
+
+                }else {
+                    AlertDialog errorAlert;
+                    errorAlert = new AlertDialog.Builder(MainActivity.this).create();
+                    errorAlert.setTitle("Login Failed");
+                    errorAlert.setMessage("Username or Password is incorrect");
+                    errorAlert.show();
+                }
+
             }
         });
     }
