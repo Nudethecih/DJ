@@ -46,8 +46,5 @@ public class main extends Activity {
 
             }
         });*/
-
-
     }
-
 }
