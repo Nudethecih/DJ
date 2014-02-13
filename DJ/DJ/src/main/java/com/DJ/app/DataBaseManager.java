@@ -18,7 +18,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
     // The Android's default system path of your application database.
     //data/data/ and /databases remain the same always. The one that must be changed is com.example which represents
     //the MAIN package of your project
-    private static String DB_PATH = "/DJ/DJ/com.DJ/database/";
+    private static String DB_PATH = "/data/data/com.DJ.app/databases/";
 
     //the name of your database
     private static String DB_NAME = "database";
@@ -129,6 +129,11 @@ public class DataBaseManager extends SQLiteOpenHelper {
      */
     public void copyDataBase() throws IOException {
 
+        /*
+        sqlCommand("CREATE DATABASE database;");
+
+*/
+
         // Open your local db as the input stream
         InputStream myInput = ApplicationContextProvider.getContext().getAssets().open(DB_NAME);
 
@@ -149,6 +154,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
         myOutput.flush();
         myOutput.close();
         myInput.close();
+
+
 
     }
 

@@ -36,6 +36,11 @@ public class main extends Activity {
                 values.put("USER_NAME", "Test");
                 values.put("USER_PASSWORD", "Test");
                 values.put("USER_TYPE", "Admin");
+                /*DataBaseManager.instance().sqlCommand("CREATE TABLE USER(" +
+                        "                USER_NAME CHAR(15)," +
+                        "                USER_PASSWORD CHAR(15)," +
+                        "                USER_TYPE CHAR(15)" +
+                        "                )"); */
                 DataBaseManager.instance().insert("USER", values);
             }
         });
